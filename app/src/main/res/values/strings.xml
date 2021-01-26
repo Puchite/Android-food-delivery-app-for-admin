@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">nompangAdmin</string>
+    <string name="orderList">ออเดอร์</string>
+    <string name="manageStore">จัดการสินค้า</string>
+    <string name="manageUser">ข้อมูลลูกค้า</string>
+    <string name="productCategory">หมวดหมู่สินค้า</string>
+    <string name="productType">ชนิดสินค้า</string>
+    <string name="phone">Phone</string>
+    <string name="amount" />
+
+</resources>
