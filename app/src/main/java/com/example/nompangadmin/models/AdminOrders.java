@@ -7,14 +7,15 @@ import androidx.recyclerview.widget.RecyclerView;
 
 public class AdminOrders  {
 
-    public String name,phone,location,amount;
+    public String name,phone,location,amount,receive;
     public  AdminOrders(){};
 
-    public AdminOrders(String name, String phone, String location, String amount) {
+    public AdminOrders(String name, String phone, String location, String amount, String pickup) {
         this.name = name;
         this.phone = phone;
         this.location = location;
         this.amount = amount;
+        this.receive = pickup;
     }
 
     public String getName() {
@@ -43,6 +44,14 @@ public class AdminOrders  {
 
     public String getAmount() {
         return amount;
+    }
+
+    public String getReceive() {
+        return receive;
+    }
+
+    public void setReceive(String pickup) {
+        this.receive = pickup;
     }
 
     public void setAmount(String amount) {

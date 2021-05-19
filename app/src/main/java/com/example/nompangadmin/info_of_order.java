@@ -40,17 +40,20 @@ public class info_of_order extends AppCompatActivity {
     @Override
     protected void onStart() {
         super.onStart();
-       FirebaseRecyclerOptions<Cart> options =
+        FirebaseRecyclerOptions<Cart> options =
                new FirebaseRecyclerOptions.Builder<Cart>()
                .setQuery(productreference1,Cart.class)
                .build();
-       FirebaseRecyclerAdapter<Cart,viewholder>adapter = new FirebaseRecyclerAdapter<Cart, viewholder>(options) {
+        FirebaseRecyclerAdapter<Cart,viewholder>adapter = new FirebaseRecyclerAdapter<Cart, viewholder>(options) {
            @Override
            protected void onBindViewHolder(@NonNull viewholder holder, int position, @NonNull Cart model) {
-                holder.Usernametext.setText("id : "+usernameid);
-                holder.AmountText.setText("amount : "+model.getAmount());
-                holder.PriceText.setText("price : "+ (Integer.parseInt(model.getPrice())*Integer.parseInt(model.getAmount()))+" baht");
-                holder.productText.setText("product name : "+model.getName());
+                // Get each Product Order //
+                String Product_Order = getRef(position).getKey();
+
+//                holder.Usernametext.setText("Id : "+usernameid);
+                holder.AmountText.setText("Amount : "+model.getAmount());
+                holder.PriceText.setText("Price : "+ (Integer.parseInt(model.getPrice())*Integer.parseInt(model.getAmount()))+" baht");
+                holder.productText.setText("Product name : "+Product_Order);
 
            }
 
@@ -58,7 +61,7 @@ public class info_of_order extends AppCompatActivity {
            @Override
            public viewholder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
 
-               View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.layout_orde, parent, false);
+               View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.layout_order, parent, false);
 
                viewholder  holder = new viewholder(view);
                return  holder;

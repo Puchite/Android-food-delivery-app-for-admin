@@ -4,31 +4,65 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/newadminbg"
     tools:context=".orderlistActivity">
 
-    <Button
-        android:id="@+id/orderButton"
+    <ImageButton
+        android:id="@+id/manageStore2"
         android:layout_width="190dp"
         android:layout_height="98dp"
-        android:text="@string/orderList"
+        android:background="@drawable/manageimgbtn"
+        android:fontFamily="@font/kranok"
+        android:text="@string/manageStore"
+        android:textSize="20dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.493"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.203" />
+        app:layout_constraintVertical_bias="0.361" />
 
-    <Button
-        android:id="@+id/manageStore"
-        android:layout_width="191dp"
-        android:layout_height="102dp"
-        android:text="@string/manageStore"
+    <ImageButton
+        android:id="@+id/orderButton"
+        android:layout_width="190dp"
+        android:layout_height="98dp"
+        android:background="@drawable/orderimgbtn"
+        android:tooltipText="นำเข้าสู่หน้าจำนวนออเดอร์ทั้งหมดของลูกค้า"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.49"
+        app:layout_constraintHorizontal_bias="0.493"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.408" />
+        app:layout_constraintVertical_bias="0.148" />
 
+    <ImageButton
+        android:id="@+id/addProduct"
+        android:layout_width="190dp"
+        android:layout_height="98dp"
+        android:background="@drawable/addnewproduct"
+        android:fontFamily="@font/kranok"
+        android:text="@string/manageStore"
+        android:textSize="20dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.493"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.576" />
+
+    <ImageButton
+        android:id="@+id/editProduct"
+        android:layout_width="190dp"
+        android:layout_height="98dp"
+        android:background="@drawable/editordeleteproduct"
+        android:fontFamily="@font/kranok"
+        android:text="@string/editProduct"
+        android:textSize="20dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.493"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.789" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

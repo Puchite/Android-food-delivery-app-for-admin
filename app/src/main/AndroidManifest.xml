@@ -2,6 +2,11 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.nompangadmin">
 
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
     <uses-permission android:name="android.permission.INTERNET" />
 
     <application
@@ -13,7 +18,12 @@
         android:theme="@style/Theme.NompangAdmin">
         <activity android:name=".info_of_order" />
         <activity android:name=".manageStoreActivity" />
+        <activity android:name=".ChooseManageProduct" />
         <activity android:name=".orderlistActivity" />
+        <activity android:name=".addProductActivity"/>
+        <activity android:name=".editProductActivity" />
+        <activity android:name=".Manage_Drinks"/>
+        <activity android:name=".Manage_Bread"/>
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

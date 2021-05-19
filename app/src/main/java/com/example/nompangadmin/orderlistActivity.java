@@ -5,55 +5,37 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import android.app.AlertDialog;
-import android.app.ProgressDialog;
-import android.content.Context;
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
-import android.text.TextUtils;
-import android.util.Patterns;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
-import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.nompangadmin.models.AdminOrders;
-import com.example.nompangadmin.models.models;
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
 import com.firebase.ui.database.FirebaseRecyclerOptions;
-import com.google.android.gms.tasks.OnCompleteListener;
-import com.google.android.gms.tasks.Task;
-import com.google.firebase.auth.AuthResult;
-import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
-import java.util.HashMap;
-
 public class orderlistActivity extends AppCompatActivity {
     private long presstime;
     private RecyclerView orderlist;
-    private DatabaseReference orderref,ordermove;
-    private  Toast backtoast;
-
+    private DatabaseReference orderref;
+    private Toast backtoast;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_orderlist);
         orderref = FirebaseDatabase.getInstance().getReference().child("Orders");
-        ordermove = FirebaseDatabase.getInstance().getReference();
         orderlist = findViewById(R.id.recycleview);
         orderlist.setLayoutManager(new LinearLayoutManager(this));
-
-
     }
 
     @Override
@@ -61,8 +43,8 @@ public class orderlistActivity extends AppCompatActivity {
         super.onStart();
         FirebaseRecyclerOptions<AdminOrders> options=
                 new FirebaseRecyclerOptions.Builder<AdminOrders>()
-                .setQuery(orderref,AdminOrders.class)
-                .build();
+                        .setQuery(orderref,AdminOrders.class)
+                        .build();
         FirebaseRecyclerAdapter<AdminOrders,AdiminOrderViewhold>adapter
                 = new FirebaseRecyclerAdapter<AdminOrders, AdiminOrderViewhold>(options) {
             @Override
@@ -70,8 +52,9 @@ public class orderlistActivity extends AppCompatActivity {
 
                 holder.username.setText("Name : "+ model.getName());
                 holder.phone.setText("Phone : "+ model.getPhone());
-                holder.location.setText("location : "+ model.getLocation());
-                holder.price.setText("total Price : "+ model.getAmount()+" Baht");
+                holder.location.setText("Location : "+ model.getLocation());
+                holder.price.setText("Total Price : "+ model.getAmount()+" Baht");
+                holder.pickup.setText("Pick Up : "+ model.getReceive());
                 holder.viewmoreButton.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
@@ -83,38 +66,26 @@ public class orderlistActivity extends AppCompatActivity {
                     }
                 });
 
-
-
-
                 holder.itemView.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
                         String uid = getRef(position).getKey();
-
-
-                        if(presstime+2000>System.currentTimeMillis()){
+                        if(presstime+2000 > System.currentTimeMillis()){
                             backtoast.cancel();
                             orderref.addValueEventListener(new ValueEventListener() {
                                 @Override
                                 public void onDataChange(@NonNull DataSnapshot snapshot) {
-
                                     orderref.child(uid).removeValue();
                                     Intent intent1 = new Intent(orderlistActivity.this,orderlistActivity.class);
-
-
                                     startActivity(intent1);
-
                                 }
-
                                 @Override
                                 public void onCancelled(@NonNull DatabaseError error) {
-
                                 }
                             });
                             return;
                         }
                         else{
-
                             backtoast =  Toast.makeText(orderlistActivity.this, "press again to delete", Toast.LENGTH_SHORT);
                             backtoast.show();
                         }
@@ -122,7 +93,6 @@ public class orderlistActivity extends AppCompatActivity {
                     }
                 });
             }
-
 
             @NonNull
             @Override
@@ -135,11 +105,8 @@ public class orderlistActivity extends AppCompatActivity {
         adapter.startListening();
     }
 
-
-
-
     public static class AdiminOrderViewhold extends RecyclerView.ViewHolder{
-        public TextView username,phone,price,location;
+        public TextView username,phone,price,location,pickup;
         Button viewmoreButton;
         public AdiminOrderViewhold(@NonNull View itemView) {
             super(itemView);
@@ -149,12 +116,11 @@ public class orderlistActivity extends AppCompatActivity {
             location = itemView.findViewById(R.id.location_lay);
             username = itemView.findViewById(R.id.username_lay);
             viewmoreButton = itemView.findViewById(R.id.view_more);
-
-
+            pickup = itemView.findViewById(R.id.receive_lay);
         }
     }
-    public void onBackPressed() {
 
+    public void onBackPressed() {
         if(presstime+2000>System.currentTimeMillis()){
             backtoast.cancel();
             startActivity(new Intent(orderlistActivity.this,MainActivity.class));
@@ -166,5 +132,4 @@ public class orderlistActivity extends AppCompatActivity {
         }
         presstime = System.currentTimeMillis();
     }
-
 }

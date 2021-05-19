@@ -3,9 +3,18 @@
     <string name="orderList">ออเดอร์</string>
     <string name="manageStore">จัดการสินค้า</string>
     <string name="manageUser">ข้อมูลลูกค้า</string>
+    <string name="nameOfProduct">ชื่อสินค้า</string>
+    <string name="discriptionOfProduct">รายละเอียดสินค้า</string>
+    <string name="edit">แก้ไขสินค้า</string>
+    <string name="delete">ลบ</string>
+    <string name="priceOfProduct">ราคาสินค้า</string>
+    <string name="addpicture">เพิ่มรูปภาพสินค้า</string>
+    <string name="addProduct">เพิ่มสินค้า</string>
+    <string name="editProduct">แก้ไขสินค้า</string>
     <string name="productCategory">หมวดหมู่สินค้า</string>
     <string name="productType">ชนิดสินค้า</string>
     <string name="phone">Phone</string>
     <string name="amount" />
+    <string name="cancel">Cancel</string>
 
 </resources>

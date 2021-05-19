@@ -5,69 +5,84 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content">
+
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:padding="10dp"
         android:layout_margin="5dp"
-        android:background="@color/cardview_dark_background"
-        >
+        android:background="@drawable/background_des"
+        android:padding="10dp">
 
         <TextView
             android:id="@+id/username_lay"
-            android:layout_width="160dp"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginLeft="2dp"
+            android:fontFamily="@font/waffle"
             android:text="User Name"
             android:textColor="@color/black"
-            android:textSize="15dp"
-            android:layout_marginLeft="2dp"
+            android:textSize="25dp"
             android:textStyle="bold"
-
             />
 
         <TextView
             android:id="@+id/phone_lay"
-            android:layout_width="165dp"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginLeft="180dp"
+            android:layout_marginTop="0dp"
             android:text="@string/phone"
+            android:fontFamily="@font/waffle"
             android:textColor="@color/black"
-            android:textSize="15dp"
-            android:layout_marginLeft="200dp"
-            android:textStyle="bold"/>
+            android:textSize="25dp"
+            android:textStyle="bold" />
 
         <TextView
             android:id="@+id/price_lay"
             android:layout_width="190dp"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="80dp"
-
-            android:layout_marginTop="75dp"
+            android:layout_marginLeft="2dp"
+            android:layout_marginTop="5dp"
+            android:layout_below="@+id/location_lay"
             android:text="Price"
+            android:fontFamily="@font/waffle"
             android:textColor="@color/black"
-            android:textSize="15dp"
+            android:textSize="25dp"
             android:textStyle="bold" />
 
         <TextView
             android:id="@+id/location_lay"
-            android:layout_width="190dp"
-            android:layout_height="40dp"
-            android:text="Location"
-
-
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="2dp"
             android:layout_marginTop="30dp"
+            android:fontFamily="@font/waffle"
+            android:text="Location"
             android:textColor="@color/black"
-            android:textSize="15dp"
-            android:layout_marginLeft="80dp"
-            android:textStyle="bold"/>
+            android:textSize="25dp"
+            android:textStyle="bold" />
 
+        <TextView
+            android:id="@+id/receive_lay"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="200dp"
+            android:layout_above="@+id/view_more"
+            android:textColor="@color/black"
+            android:textSize="25dp"
+            android:fontFamily="@font/waffle"
+            android:textStyle="bold"
+            />
         <Button
             android:id="@+id/view_more"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="100dp"
-
-            android:text="view more"
+            android:layout_marginTop="0dp"
             android:backgroundTint="@color/black"
+            android:layout_below="@+id/price_lay"
+            android:text="view more"
+            android:textSize="30dp"
+            android:fontFamily="@font/waffle"
             android:textColor="@color/white" />
 
 

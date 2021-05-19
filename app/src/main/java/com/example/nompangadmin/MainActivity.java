@@ -1,25 +1,15 @@
 package com.example.nompangadmin;
 
-import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.Toast;
 
-import com.google.firebase.database.DataSnapshot;
-import com.google.firebase.database.DatabaseError;
-import com.google.firebase.database.DatabaseReference;
-import com.google.firebase.database.FirebaseDatabase;
-import com.google.firebase.database.ValueEventListener;
-
-import java.util.HashMap;
-
 public class MainActivity extends AppCompatActivity {
-
-    Button orderList,manageStorelist;
+    ImageButton orderList, manageStorelist,addProductList, editProductList;
     private long presstime;
     private  Toast backtoast;
 
@@ -29,8 +19,9 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         orderList = findViewById(R.id.orderButton);
-        manageStorelist = findViewById(R.id.manageStore);
-
+        manageStorelist = findViewById(R.id.manageStore2);
+        addProductList = findViewById(R.id.addProduct);
+        editProductList = findViewById(R.id.editProduct);
 
         orderList.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -39,28 +30,6 @@ public class MainActivity extends AppCompatActivity {
                 String a ="1";
                 int aa;
 
-
-//                final DatabaseReference roota;
-//
-//                roota = FirebaseDatabase.getInstance().getReference();
-//
-//                roota.addValueEventListener(new ValueEventListener() {
-//                    @Override
-//                    public void onDataChange(@NonNull DataSnapshot snapshot) {
-////                        roota.child("Drinks").child("coffe").removeValue();
-//                        HashMap<String,Object> userdataMap = new HashMap<>();
-//                        userdataMap.put("name","nompang+sang");
-//                        userdataMap.put("price","50");
-//                        userdataMap.put("amout","2");
-//                        userdataMap.put("description","ควย");
-//                        roota.child("Orders").child("3").updateChildren(userdataMap);
-//                    }
-//
-//                    @Override
-//                    public void onCancelled(@NonNull DatabaseError error) {
-//
-//                    }
-//                });
                 startActivity(toOrderlistPage);
             }
         });
@@ -68,12 +37,26 @@ public class MainActivity extends AppCompatActivity {
         manageStorelist.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent toManageStorePage = new Intent(getApplicationContext(),manageStoreActivity.class);
+                Intent toManageStorePage = new Intent(getApplicationContext(),ChooseManageProduct.class);
                 startActivity(toManageStorePage);
             }
         });
 
+        addProductList.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent toaddProduct = new Intent(getApplicationContext(),addProductActivity.class);
+                startActivity(toaddProduct);
+            }
+        });
 
+        editProductList.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent toEditProduct = new Intent(getApplicationContext(),editProductActivity.class);
+                startActivity(toEditProduct);
+            }
+        });
 
     }
     public void onBackPressed() {
