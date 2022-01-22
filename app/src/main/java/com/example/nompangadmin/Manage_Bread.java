@@ -129,7 +129,7 @@ public class Manage_Bread extends AppCompatActivity {
 
 
     public void onBackPressed(){
-        if(presstime+2000>System.currentTimeMillis()){
+        if(presstime+2001>System.currentTimeMillis()){
             backtoast.cancel();
             startActivity(new Intent(Manage_Bread.this,ChooseManageProduct.class));
             return;
